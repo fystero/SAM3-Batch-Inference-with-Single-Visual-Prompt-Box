@@ -12,7 +12,7 @@
 
 **2、用labelme等软件标注提示框**
 
-<img title="" src="file:///C:/Users/25000/AppData/Roaming/marktext/images/2026-05-10-14-27-51-image.png" alt="" width="280">
+<img title="" src="./assets/1.png" alt="" width="280">
 
 准备好1-5张图将它放至./datasets/init目录下。每张图用矩形框标注1-5个矩形框，将标签设置为1，将标签文件保存在该目录下
 
@@ -21,3 +21,5 @@
 **4、运行vision_prompt_batch_infer.py文件***
 
 在./datasets/outputs目录下查看推理结果*
+
+<img title="" src="./assets/2.png" alt="" width="346">

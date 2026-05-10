@@ -21,7 +21,7 @@ from tqdm import tqdm
 
 class SelfLearner:
     def __init__(self, input_floder, init_folder, checkpoint_path,is_reinfer=False, device=None, conf_threshold=0.6, output_folder= None, use_label_embeding=False):
-        self.image_file_pathes = get_files_from_folder(input_floder,"jpg")#修改你的图片后缀名
+        self.image_file_pathes = get_files_from_folder(input_floder,"JPG")#修改你的图片后缀名
         self.output_folder = output_folder
         self.use_label_embedings = use_label_embeding
         self.is_reinfer = is_reinfer
@@ -132,8 +132,8 @@ class SelfLearner:
 
         inference_state['is_segment'] = True ###是否绘制实例分割
         inference_state = self.processor.forward_grounding(inference_state)
-        if save_path:
-            save_results(image, save_path, inference_state, conf_thresd=0.5)
+        # if save_path:
+        #     save_results(image, save_path, inference_state, conf_thresd=0.5)
         confs =inference_state['scores'].cpu().float().numpy().reshape(-1,1)
         bboxes=inference_state['boxes'].cpu().numpy()
         infer_results = np.concatenate([bboxes,confs],axis=-1)
@@ -286,11 +286,11 @@ class SelfLearner:
     
 if __name__=="__main__":
 
-    dataset_floder = r'.\dataset\images'#所有需要推理的图片
-    init_folder = r'.\dataset\init'#laleme标注好的用于提示的json文件和图片
-    checkpoint_path = r"./sam3_4.pth"#权重
+    dataset_floder = r'.\datasets\images'#所有需要推理的图片
+    init_folder = r'.\datasets\init'#laleme标注好的用于提示的json文件和图片
+    checkpoint_path = r"E:\Code\SAM3-Adapter-Pytorch\sam3_4.pth"#权重
     device = 'cuda'#设备
-    output_folder = r'.\dataset\outputs' #输出文件夹
+    output_folder = r'.\datasets\outputs' #输出文件夹
     conf_threshold=0.6#置信度阈值
     leaner = SelfLearner(dataset_floder, init_folder, checkpoint_path,True, device ,conf_threshold, output_folder)
     leaner()

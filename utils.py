@@ -77,7 +77,7 @@ def get_files_from_folder(folder_path,file_type):
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             # 获取文件的完整路径
-            if file.split('.')[-1].upper() == file_type:
+            if file.split('.')[-1].upper() == file_type.upper():
                 file_path = os.path.join(root, file)
                 file_paths.append(file_path)  # 将路径添加到列表中
     return file_paths
