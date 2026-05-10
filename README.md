@@ -18,7 +18,7 @@
 
 **2、用labelme等软件标注提示框**
 
-<img title="" src="file:./2026-05-10-14-27-51-image.png" alt="" width="280">
+<img title="" src="file:./1.png" alt="" width="280">
 
 准备好1-5张图放至./datasets/init目录下，每张图标注1-5个矩形框并将标签设置为1，将标签文件保存在该目录下
 
